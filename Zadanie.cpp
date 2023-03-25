@@ -1,4 +1,3 @@
-
 #include "Zadanie.h"
 #include <fstream>
 #include <iostream>
@@ -18,22 +17,31 @@ void funkcje::dodawanieTablic() {
         cout << "podaj " << i + 1 << " liczbe: ";
         cin >> tablica1[i];
     }
+
 }
 void funkcje::zapisPliku() {
     fstream plik;
-    plik.open("tablice.txt", ios::out);//pisanie czygos mozna dac swoja nazwe pliku
+    plik.open("takok.txt", ios::out);
     if (plik.is_open()) {
+        plik << "otworzyles go: "<<endl;
         cout << "poprawnie otwarto plik \n";
-        plik << "pierwsza tablica: ";
-        for (int i = 0; i < n; i++) {
+        plik<<"tablica pierwsza: ";
+        for (int i = 0; i < n; i++)
+        {
             plik << tablica[i] << " ";
         }
-        plik << "\ndruga tablica: ";
-        for (int i = 0; i < n; ++i) {
-            plik << tablica1[i] << " ";
+        plik<<endl<<"druga tablica: ";
+        for(int x=0;x<n;x++){
+            plik << tablica1[x] << " ";
         }
-    }
-    else {
+
+
+
+
+
+
+        plik.close();
+    } else {
         cout << "nie moge otworzyc badz stworzyc pliku";
     }
 
@@ -49,5 +57,5 @@ void funkcje::poruwnywanieTablic() {
     else {
         cout << "te dwie tablice nie maja identycznych liczb";
     }
-}
 
+}
